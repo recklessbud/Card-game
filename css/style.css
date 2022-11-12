@@ -1,0 +1,71 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+img{
+  display: block;
+  margin: 0 auto;
+   max-width: 130px;
+   box-shadow: #2e2e2e 5px 5px 5px 5px;
+}
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+.contaner{
+  margin: 0 auto;
+  width: 90%;
+   max-width: 980px;
+}
+ .point{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+
+  h2, h1, h3{
+     text-align: center;
+     font-family: 'Roboto Condensed', sans-serif;
+  }
+  h1{
+    padding-top: 1em;
+  }
+   #flip{
+    order: 2;
+    height: 50px;
+      width: 50%;
+      margin: 0 auto;
+      text-align: center;
+      background-color: #e4ab60ed;
+      color: #2e2e2e;
+      font-family: 'Cabin', sans-serif;
+      font-weight: bold;
+        font-size: 1.4rem;
+        border: none;
+        border-radius: 5px;
+        margin-top: 1em;
+   }
+
+    h3{
+        font-size: 1.4rem;
+    }
+
+
+
+    @media screen  and (max-width: 700px){
+        body{
+          background-color: #2e2e2e;
+        }
+    }
