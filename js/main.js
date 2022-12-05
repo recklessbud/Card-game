@@ -1,3 +1,18 @@
+// adding local storage
+ if (typeof(Storage !== "undefined")) {
+     if (!localStorage.getItem("scores")) {
+          localStorage.setItem("scores", 0)
+     }else if (!localStorage.getItem("score")) {
+       localStorage.setItem("score", 0)
+     }
+ }else{
+   console.log("Storage error")
+ }
+
+
+
+
+
 //Example fetch using pokemonapi.co
 document.querySelector('button').addEventListener('click', getFetch)
  
@@ -18,8 +33,10 @@ fetch(api)
      let x = 0;
      let y = 0;
    
-   
-   
+     let score = localStorage.getItem('score')
+      let scores = localStorage.getItem("scores")
+      
+    
    function getFetch(){
      const url = `https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`
       fetch(url)
@@ -34,13 +51,21 @@ fetch(api)
           document.querySelector('#celes').innerHTML = 'Player wins'
           for (let i = 0; i < 1; i++) {
             y++;
-            document.querySelector(".know").innerHTML = y
-         }      
+            let scoreVal = Number(localStorage.getItem("scores"));
+              scoreVal += 1 
+             localStorage.setItem("scores", scoreVal)
+         }
+         document.querySelector(".know").innerHTML  = `${y}`
+            
               } else if (player1 < player2) {
                 document.querySelector('#celes').innerHTML = 'Computer wins'
                 for (let i = 0; i < 1; i++) {
                    x++;
-                   document.querySelector("#jets").innerHTML = x 
+                  
+                let scoreVal = Number(localStorage.getItem("score"));
+                scoreVal += 1 
+                localStorage.setItem("score", scoreVal)
+
                 }
               
                document.querySelector("#jets").innerHTML  = `${x}`
@@ -54,6 +79,7 @@ fetch(api)
        console.log(`error ${err}`)
     })
 
+  
   }
 
   function convertCardsToNum(value) {
@@ -70,5 +96,5 @@ fetch(api)
     }
   }
 
-
- 
+  document.querySelector(".com").innerHTML = score;
+  document.querySelector(".plays").innerHTML = scores;
